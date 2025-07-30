@@ -4,7 +4,129 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>:(</title>
-    <link href="styles.css" rel="stylesheet" />
+    <style>
+      :root {
+        --dark-blue: #0000aa;
+        --dark-gray: #aaaaaa;
+        --alabaster: #fbfbfe;
+      }
+
+      @font-face {
+        font-family: "DOSVGA";
+        src: url("https://cdn.jsdelivr.net/gh/nonepork/DEFACE/fonts/ibm_vga_8x16.woff");
+      }
+
+      body {
+        background-color: var(--dark-blue);
+        color: var(--alabaster);
+        font-family: "DOSVGA", sans-serif;
+        text-align: center;
+        overflow: hidden;
+
+        /* trying to make the font like the original */
+        image-rendering: pixelated;
+        -webkit-font-smoothing: none;
+        -moz-osx-font-smoothing: auto;
+        text-rendering: optimizeSpeed;
+      }
+
+      .center-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 90vh; /* makes it stay a little bit higher */
+        padding: 1rem;
+        box-sizing: border-box;
+      }
+
+      /* scanline sweep */
+      .center-container::before {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        height: 30px;
+        pointer-events: none;
+        background: linear-gradient(
+          to top,
+          rgba(255, 255, 255, 0.15),
+          rgba(255, 255, 255, 0)
+        );
+        animation: scanline-sweep 6s linear infinite;
+      }
+
+      /* easier on eyes */
+      .center-container::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        pointer-events: none;
+        background: repeating-linear-gradient(
+          to bottom,
+          rgba(100, 100, 100, 0.3),
+          rgba(100, 100, 100, 0.3) 1px,
+          transparent 1px,
+          transparent 2px
+        );
+      }
+
+      .windows-text-box {
+        display: inline-block;
+        padding: 1px 8px;
+        margin-bottom: 5px;
+        color: darkblue;
+        background-color: var(--dark-gray);
+        animation: 5s ease 2000ms normal none infinite running glitch;
+      }
+
+      .error-message {
+        text-align: left;
+        margin-top: 1rem;
+        max-width: 600px;
+        animation: 5s ease 2000ms normal none infinite running glitch;
+      }
+
+      @keyframes scanline-sweep {
+        0% {
+          top: 100%;
+        }
+        100% {
+          top: -20px;
+        }
+      }
+
+      @keyframes glitch {
+        30% {
+        }
+        40% {
+          opacity: 1;
+          transform: scale(1, 1);
+          transform: skew(0, 0);
+        }
+        41% {
+          opacity: 0.8;
+          transform: scale(1, 1.2);
+          transform: skew(80deg, 0);
+        }
+        42% {
+          opacity: 0.8;
+          transform: scale(1, 1.2);
+          transform: skew(-50deg, 0);
+        }
+        43% {
+          opacity: 1;
+          transform: scale(1, 1);
+          transform: skew(0, 0);
+        }
+        65% {
+        }
+      }
+    </style>
   </head>
   <body>
     <div class="screen">
@@ -21,11 +143,7 @@
           And don't forget to share everyone your music taste.<br /><br />
           Que mas puedo decir?
         </p>
-
-        <p>Press enter to continue...</p>
       </div>
     </div>
-
-    <script src="script.js"></script>
   </body>
 </html>
