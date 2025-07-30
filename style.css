@@ -1,0 +1,40 @@
+:root {
+  --dark-blue: #0000aa;
+  --dark-gray: #aaaaaa;
+}
+
+@font-face {
+  font-family: "PERFECTDOSVGA";
+  src: url("https://cdn.jsdelivr.net/gh/nonepork/DEFACE/fonts/dos_vga_437_win.ttf");
+}
+
+body {
+  background-color: var(--dark-blue);
+  color: white;
+  font-family: "PERFECTDOSVGA", monospace;
+  text-align: center;
+  font-size: 14px;
+}
+
+.center-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 90vh; /* Makes it stay a little bit higher */
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.windows-text-box {
+  display: inline-block;
+  padding: 1px 8px;
+  color: darkblue;
+  background-color: var(--dark-gray);
+}
+
+.error-message {
+  text-align: left;
+  margin-top: 1rem;
+  max-width: 600px;
+}
