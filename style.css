@@ -11,9 +11,14 @@
 body {
   background-color: var(--dark-blue);
   color: white;
-  font-family: "PERFECTDOSVGA", monospace;
+  font-family: "PERFECTDOSVGA", sans-serif;
   text-align: center;
-  font-size: 14px;
+
+  font-size: 16px; /* Match font’s native size (usually 16px or 8px) */
+  image-rendering: pixelated; /* Helps with some elements */
+  -webkit-font-smoothing: none; /* Chrome / Safari */
+  -moz-osx-font-smoothing: auto; /* Firefox */
+  text-rendering: optimizeSpeed; /* Hint to browser: no anti-aliasing */
 }
 
 .center-container {
